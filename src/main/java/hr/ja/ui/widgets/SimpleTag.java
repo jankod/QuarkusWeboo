@@ -28,7 +28,6 @@ public class SimpleTag extends CompositeWidget implements HasClasses {
     }
 
 
-
     private String renderChildren() {
         StringBuilder sb = new StringBuilder();
         for (Widget child : getChildren()) {
@@ -41,7 +40,6 @@ public class SimpleTag extends CompositeWidget implements HasClasses {
     private String prepareAttributes() {
         final StringBuilder att = new StringBuilder();
         getAttributes().forEach((name, o) -> {
-            //MessageFormat.format("sadas {1}", "");
             String value = WebooUtil.htmlEscape(o.toString());
             att.append("""
                     %s="%s" """.formatted(name, value));
@@ -51,10 +49,11 @@ public class SimpleTag extends CompositeWidget implements HasClasses {
 
     @Override
     public String toHtml() {
+        String renderAttributes = prepareAttributes();
 
         @Language("HTML")
         String html = """
-                  <${tag} ${renderAttributes().raw} id="${widgetId}">
+                  <${tag} {renderAttributes().raw} id="${widgetId}">
                         ${text}
                          {children.raw}
                    </${tag}>
@@ -62,6 +61,7 @@ public class SimpleTag extends CompositeWidget implements HasClasses {
 
         return WebooUtil.quteMap(html, Map.of(
                 "this", this,
+                "renderAttributes", renderAttributes,
                 "children", renderChildren()
         ));
     }

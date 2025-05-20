@@ -8,7 +8,6 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.stream.Collectors;
 
-// Jednostavno statičko skladište u memoriji
 public class InMemoryStorage {
 
     // Mapa klase entiteta -> Mapa ID-a -> Instanca entiteta
