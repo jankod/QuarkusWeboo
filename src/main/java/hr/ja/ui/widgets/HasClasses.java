@@ -1,8 +1,6 @@
 package hr.ja.ui.widgets;
 
 
-import hr.ja.ui.HasAttributes;
-
 public interface HasClasses extends HasAttributes {
     default String getClasses() {
         Object aClass = getAttributes().get("class");

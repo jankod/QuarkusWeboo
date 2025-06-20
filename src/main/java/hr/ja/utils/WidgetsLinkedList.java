@@ -1,12 +1,12 @@
 package hr.ja.utils;
 
-import hr.ja.ui.HasHtml;
+import hr.ja.ui.widgets.HtmlRender;
 import hr.ja.ui.widgets.Widget;
 
 import java.util.Iterator;
 import java.util.LinkedList;
 
-public class WidgetsLinkedList extends LinkedList<Widget> implements HasHtml {
+public class WidgetsLinkedList extends LinkedList<Widget> implements HtmlRender {
 
     @Override
     public String toString() {

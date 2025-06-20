@@ -7,6 +7,7 @@ import org.apache.commons.lang3.exception.ExceptionUtils;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.regex.Pattern;
 
 @Slf4j
 public class QuteUtil {
@@ -14,13 +15,13 @@ public class QuteUtil {
     public static final String this_object_name = "this";
 
     private static final Engine engine;
+    private static final Pattern DOLLAR_CURLY_BRACE_PATTERN = Pattern.compile("\\$\\{(.+?)}");
 
 
     static {
         ReflectionValueResolver reflectionValueResolver = new ReflectionValueResolver();
         EngineBuilder builder = Engine.builder();
 
-        // --- Dodavanje ParserHook-a za ${} sintaksu ---
         builder.addParserHook(parserHelper -> {
             parserHelper.addContentFilter(templateContent -> {
                 // Koristi regularni izraz za zamjenu ${expression} s {expression}
@@ -30,7 +31,7 @@ public class QuteUtil {
                 //           Ovo je grupa za hvatanje (capture group 1)
                 // \\}     - Traži literalni znak } (treba escapeati)
                 // Zamjena: "{$1}" - Zamjenjuje cijeli pronađeni niz s { + sadržaj grupe 1 + }
-                return templateContent.replaceAll("\\$\\{(.+?)}", "{$1}");
+                return DOLLAR_CURLY_BRACE_PATTERN.matcher(templateContent).replaceAll("{$1}");
             });
         });
         // --- Kraj ParserHook-a ---
@@ -39,10 +40,10 @@ public class QuteUtil {
         engine = builder
                 .strictRendering(true)
                 .addDefaultSectionHelpers()
-                .addResultMapper(new QuteWidgetResultMapper()) // Pretpostavljam da ova klasa postoji
+                .addResultMapper(new QuteWidgetResultMapper())
                 .addDefaultValueResolvers()
                 .addParserHook(new Qute.IndexedArgumentsParserHook())
-                .addResultMapper(new HtmlEscaper(ImmutableList.of("text/html"))) // Koristimo importan ImmutableList
+                .addResultMapper(new HtmlEscaper(ImmutableList.of("text/html")))
                 .addValueResolver(reflectionValueResolver)
                 .addValueResolver(ValueResolvers.rawResolver())
                 .build();

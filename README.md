@@ -61,6 +61,6 @@ If you want to learn more about building native executables, please consult <htt
 
 ### RESTEasy Qute
 
-Create your web page using Quarkus RESTEasy & Qute
+Create your web htmlRender using Quarkus RESTEasy & Qute
 
 [Related guide section...](https://quarkus.io/guides/qute#type-safe-templates)
