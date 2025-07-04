@@ -1,9 +1,6 @@
 package hr.ja.ui.js;
 
 @JavaScript("""
-
-    
-
       const headers = {
           Weboo_widget_id: widgetId,
           Weboo_event_name: 'submit',
@@ -20,6 +17,7 @@ package hr.ja.ui.js;
       );
       """)
 public class SubmitFormCommand extends JavaScriptFunction {
+
     private final String widgetId;
 
     public SubmitFormCommand(String widgetId) {

@@ -41,21 +41,17 @@ public class JsUtil {
                         "widgetId", widgetId,
                         "eventName", eventName,
                         "funcCall", funcCall
-                  //      "handlerId", handlerId
+                        //      "handlerId", handlerId
                   )
             ));
         }
-
-
         return js.toString();
-
     }
 
 
     public static String createJsFunctionName(Class<? extends JavaScriptFunction> aClass) {
         return aClass.getName().replaceAll("[^a-zA-Z0-9_$]", "_");
     }
-
 
 
     private static List<String> findJsParameters(Class<?> aClass) {
@@ -70,8 +66,7 @@ public class JsUtil {
 
     }
 
-
-      public static String createJsFunctionDefinitionCode(Class<? extends JavaScriptFunction> c) {
+    public static String createJsFunctionDefinitionCode(Class<? extends JavaScriptFunction> c) {
         JsUtil.checkCommand(c);
         String code = c.getAnnotation(JavaScript.class).value();
         String functionName = createJsFunctionName(c);
@@ -87,7 +82,7 @@ public class JsUtil {
 
     public static String createJsFunctionDefinitionCode(Collection<Class<? extends JavaScriptFunction>> commandDefinitions) {
         StringBuilder js = new StringBuilder();
-        if(commandDefinitions == null) {
+        if (commandDefinitions == null) {
             return "";
         }
         for (Class<? extends JavaScriptFunction> c : commandDefinitions) {

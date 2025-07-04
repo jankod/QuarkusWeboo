@@ -52,7 +52,7 @@ public class AddUserPage extends PageLayoutTabler {
 
     @POST
     @Produces(MediaType.APPLICATION_JSON)
-    @Consumes(MediaType.APPLICATION_FORM_URLENCODED) // Changed to consume form data
+    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
     public String saveUser(@BeanParam @Valid UserForm userForm) {
 
         log.debug(userForm.toString());
