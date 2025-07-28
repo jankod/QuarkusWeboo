@@ -168,7 +168,7 @@ public class InMemoryStorage {
                 } catch (Exception e) {
                     // Ovdje se može uhvatiti IllegalAccessException, ReflectionException itd.
                     // Za prototip, printanje stack tracea može biti dovoljno za debugging
-                    e.printStackTrace();
+                    throw new RuntimeException(e);
                     // Ovisno o želji, možete baciti RuntimeException ili samo logirati
                 }
             }

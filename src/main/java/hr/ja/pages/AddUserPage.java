@@ -33,7 +33,7 @@ public class AddUserPage extends PageLayoutTabler {
 
     public AddUserPage() {
         setTitle("Add user page");
-        getNavbar().getUsersItem().setActive(false);
+        getNavbar().getAddUsersItem().setActive(true);
         add(new HtmlWidget("""
                 <h3>Add user</h3>
                 <form method='post'>
@@ -47,6 +47,7 @@ public class AddUserPage extends PageLayoutTabler {
     @GET
     public Page get() {
         add(h3("Add user page"));
+        log.debug("AddUserPage GET request");
         return this;
     }
 
@@ -64,7 +65,7 @@ public class AddUserPage extends PageLayoutTabler {
     public static class UserForm {
 
         @NotBlank
-        @Min(3)
+        @Size(min = 3)
         @FormParam("name")
         private String name;
 

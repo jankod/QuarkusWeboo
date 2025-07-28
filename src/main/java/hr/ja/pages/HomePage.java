@@ -21,7 +21,7 @@ public class HomePage extends PageLayoutTabler {
     public HomePage get() {
 
         setTitle("Home page");
-        getNavbar().getUsersItem().setActive(true);
+        getNavbar().getHomeItem().setActive(true);
 
         add(new H3("Home Page"));
 
