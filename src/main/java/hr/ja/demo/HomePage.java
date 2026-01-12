@@ -1,4 +1,4 @@
-package hr.ja.pages;
+package hr.ja.demo;
 
 import hr.ja.ui.layout.PageLayoutTabler;
 import hr.ja.ui.widgets.impl.H3;

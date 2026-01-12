@@ -1,10 +1,6 @@
 package hr.ja.ui.layout;
 
-import hr.ja.pages.HomePage;
-import hr.ja.pages.UsersPage;
 import hr.ja.ui.widgets.Navbar;
-import hr.ja.ui.widgets.NavbarItem;
-import hr.ja.ui.widgets.impl.Icon;
 import hr.ja.utils.QuteUtil;
 import hr.ja.utils.WebooUtil;
 import lombok.Getter;

@@ -1,23 +1,18 @@
-package hr.ja.pages;
+package hr.ja.demo;
 
 import hr.ja.ui.Page;
 import hr.ja.ui.layout.PageLayoutTabler;
 import hr.ja.ui.widgets.impl.HtmlWidget;
 import jakarta.enterprise.context.RequestScoped;
 import jakarta.inject.Inject;
-import jakarta.validation.ConstraintViolation;
 import jakarta.validation.Valid;
 import jakarta.validation.Validator;
-import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
-
-import java.awt.print.Book;
-import java.util.Set;
 
 import static hr.ja.ui.widgets.Widgets.h3;
 

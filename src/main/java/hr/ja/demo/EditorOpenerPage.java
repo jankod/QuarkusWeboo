@@ -1,4 +1,4 @@
-package hr.ja.pages;
+package hr.ja.demo;
 
 import hr.ja.utils.WebooUtil;
 import hr.ja.utils.WidgetLocation;

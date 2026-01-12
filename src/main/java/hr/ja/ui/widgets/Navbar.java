@@ -1,8 +1,8 @@
 package hr.ja.ui.widgets;
 
-import hr.ja.pages.AddUserPage;
-import hr.ja.pages.HomePage;
-import hr.ja.pages.UsersPage;
+import hr.ja.demo.AddUserPage;
+import hr.ja.demo.HomePage;
+import hr.ja.demo.UsersPage;
 import hr.ja.ui.widgets.impl.Icon;
 import hr.ja.utils.QuteUtil;
 import lombok.Getter;
